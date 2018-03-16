@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 import { Card, Tabs } from 'antd';
 const TabPane  = Tabs.TabPane; 
 
@@ -18,7 +19,7 @@ const EntranceCard = () => {
     <Card style={styles.card} >
       <Tabs defaultActiveKey="1">
         <TabPane tab={<span>Register</span>} key="1">
-          Tab 1 
+          <RegisterForm /> 
         </TabPane>
         <TabPane tab={<span>Login</span>} key="2">
           <LoginForm />

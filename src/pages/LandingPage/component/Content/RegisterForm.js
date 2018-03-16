@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import * as actions from '../../../../actions';
+
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
-class LoginForm extends Component {
+class RegisterForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((error, values) => {
@@ -32,20 +32,19 @@ class LoginForm extends Component {
         </FormItem>
         <FormItem>
           {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
+            rules: [{ required: true, message: 'Accepting the terms is required to continue' }],
+            valuePropName: 'unchecked',
+            initialValue: false,
           })(
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>I agree to the Terms</Checkbox>
           )}
-          <a className="login-form-forgot" href="">Forgot password</a>
           <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
+            Register
           </Button>
-          Or <a href="">register now!</a>
         </FormItem>
       </Form>
     );
   }
 }
 
-export default LoginForm = Form.create()(LoginForm);
+export default RegisterForm = Form.create()(RegisterForm);
